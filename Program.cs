@@ -1,4 +1,5 @@
 using Quartz;
+using THubWorkerService.Jobs.Job_Configuration;
 
 namespace THubWorkerService
 {
@@ -19,7 +20,7 @@ namespace THubWorkerService
                 options.WaitForJobsToComplete = true;
             });
 
-            //builder.Services.ConfigureOptions<AuditTrailBackGroundJobSetUp>();
+            builder.Services.ConfigureOptions<CurrentTimeBackGroundJobSetUp>();
             var host = builder.Build();
             host.Run();
         }
